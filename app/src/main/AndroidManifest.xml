@@ -17,17 +17,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignIn"
-            android:label="@string/title_activity_sign_in"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".SignUp"
             android:label="@string/title_activity_sign_up"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Display"
-            android:label="@string/title_activity_display"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SignIn"
+            android:label="@string/title_activity_sign_in"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".CalendarClick"></activity>
     </application>
 
 </manifest>

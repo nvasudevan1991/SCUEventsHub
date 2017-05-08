@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="First Name" />
+        android:hint="First Name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/lName"
@@ -57,7 +57,7 @@
         android:layout_height="57dp"
         android:orientation="horizontal">'
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/resetbutton"
             android:layout_width="199dp"
             android:layout_height="wrap_content"
             android:text="  Reset "
@@ -65,11 +65,12 @@
             />
 
         <Button
-            android:id="@+id/register2"
+            android:id="@+id/registerbutton2"
             android:layout_width="169dp"
             android:layout_height="wrap_content"
+            android:onClick="register2"
             android:text="   Register  "
-            android:onClick="register2"/>
+            />
 
     </LinearLayout>
 
