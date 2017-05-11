@@ -1,70 +1,68 @@
 package edu.scu.androidproject;
-import android.content.Context;
+
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.icu.util.Calendar;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FirstPage extends AppCompatActivity {
 
+    private DbHelper dbHelperObject;
+    private final AppCompatActivity activity = FirstPage.this;
+    TextView tv1 = null;
+    TextView tv2 = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_page);
+
+
+        final TextView tv1 = (TextView)findViewById(R.id.emailaddress);
+        final TextView tv2 = (TextView)findViewById(R.id.password);
         Button register1 = (Button) findViewById(R.id.register);
         Button signIn1=(Button) findViewById(R.id.signin);
-                register1.setOnClickListener(new View.OnClickListener() {
+
+        dbHelperObject = new DbHelper(activity);
+
+
+                signIn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.i("Intent Starting ", " for Registration");
-                        Intent i = new Intent(getApplicationContext(), SignUp.class);
 
-                        startActivity(i);
+                 //       if (!CheckDetails((TextInputEditText) tv1) && !CheckDetails((TextInputEditText) tv2) && dbHelperObject.checkUser(tv1.getText().toString().trim()
+                 //               , tv2.getText().toString().trim())) {
+                        if(!((tv1.getText().toString().trim()).length() == 0) && dbHelperObject.checkUser(tv1.getText().toString().trim(), tv2.getText().toString().trim())) {
+                            Log.i("Intent Starting ", " for Registration");
+                            Intent i = new Intent(getApplicationContext(), SignIn.class);
+
+                            startActivity(i);
+                        } else {
+                            Toast.makeText(getBaseContext(), "Password or username incorrect", Toast.LENGTH_LONG).show();
+                        }
 
                     }
 
                 });
-        signIn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("Intent Starting ", "for SignIn");
-                Intent i =new Intent(getApplicationContext(),SignIn.class);
-                startActivity(i);
-            }
-        });
+
+                 register1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            Log.i("Intent Starting ", " for Registration");
+                            Intent i = new Intent(getApplicationContext(), SignUp.class);
+
+                            startActivity(i);
+                        }
+                });
     }
-       /* public void register(View v) {
-        if (v.getId() == R.id.register) {
-            Log.i("Intent Started", "");
-            Button registerButton1 = (Button) findViewById(R.id.register);
-            registerButton1.setOnClickListener(new View.OnClickListener() {
 
-                // SignUp s
-                @Override
-                public void onClick(View v) {
-
-
-                    //SignUp signUp=new SignUp();
-                    // signUp.register3();
-
-                    // SignUp signUp=new SignUp();
-                    //signUp.register3();
-                    // setContentView(R.layout.activity_sign_in);
-                }
-            });
-
-        }
-        }*/
     public void signin(View v) {
         if (v.getId() == R.id.signin) {
 
@@ -77,14 +75,7 @@ public class FirstPage extends AppCompatActivity {
 
     }
 
-    /*public void register(View v) {
 
-
-
-
-            setContentView(R.layout.activity_sign_up);
-        }
-    */
 
     public void reset(View v) {
         if (v.getId() == R.id.resetbutton) {
@@ -94,6 +85,15 @@ public class FirstPage extends AppCompatActivity {
     }
 
 
+
+    public boolean CheckDetails(TextInputEditText textInputEditText) {
+        String value = textInputEditText.getText().toString().trim();
+        if (value.isEmpty()) {
+          //  hideKeyboardFrom(textInputEditText);
+            return false;
+        }
+        return true;
+    }
 
     }
 

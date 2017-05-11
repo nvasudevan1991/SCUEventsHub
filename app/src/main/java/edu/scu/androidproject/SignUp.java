@@ -1,23 +1,23 @@
 package edu.scu.androidproject;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.support.v7.app.AppCompatActivity;
 
 
-public class SignUp extends Activity {
+public class SignUp extends AppCompatActivity {
     EditText firstName, lastName, userName, emailAddress, password, confirmPassword;
     Context context = this;
-    DatabaseHelper databaseHelper;
+    DbHelper databaseHelper;
     SQLiteDatabase sqLiteDatabase;
+    User user;
+    private final AppCompatActivity activity = SignUp.this;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -50,26 +50,10 @@ public class SignUp extends Activity {
                 Log.i("Reset Button Press","");
                 System.exit(0);
             }
-        });
+        });}
 
 
-        /*register2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                                Log.i("Calling Db", "");
-                dataBase();
-            }
-        });*/
 
-
-    }
-
-    //public void dataBase() {
-      //  setContentView(R.layout.activity_sign_in);
-
-        //Log.i("This is register3", "I came");
-
-    //}
 
     public void register2(View view) {
         String fname1 = firstName.getText().toString();
@@ -79,17 +63,34 @@ public class SignUp extends Activity {
         String passw = password.getText().toString();
         String cpassw = confirmPassword.getText().toString();
         Log.v("FirstName","fname1"+fname1);
-        databaseHelper = new DatabaseHelper(context);
-        sqLiteDatabase = databaseHelper.getWritableDatabase();
-        databaseHelper.insertInformation(fname1, lname1, username1, emailaddress, passw, cpassw, sqLiteDatabase);
-        Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
-        databaseHelper.close();
+        databaseHelper = new DbHelper(activity);
+        user = new User();
+      //  databaseHelper = new DatabaseHelper(context);
+      //  sqLiteDatabase = databaseHelper.getWritableDatabase();
+      //  DbHelper.insertInformation(fname1, lname1, username1, emailaddress, passw, cpassw, sqLiteDatabase);
+      //  Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
+      //  databaseHelper.close();
+        if (!databaseHelper.checkUser(emailAddress.getText().toString().trim())) {
+
+            user.setName(userName.getText().toString().trim());
+            user.setEmail(emailAddress.getText().toString().trim());
+            user.setPassword(password.getText().toString().trim());
+
+            databaseHelper.addUser(user);
+            Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
+
+            // Snack Bar to show success message that record saved successfully
+       //     Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
+       //     emptyInputEditText();
+
+
+        } else {
+            // Snack Bar to show error message that record already exists
+           // Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Error", Toast.LENGTH_LONG).show();
+        }
 
 
 
-
-
-
-        //setContentView(R.layout.activity_sign_in);
     }
 }
