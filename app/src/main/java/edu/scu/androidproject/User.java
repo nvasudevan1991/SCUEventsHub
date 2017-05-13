@@ -5,8 +5,11 @@ public class User {
 
     private int id;
     private String name;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
+    private String confirmPassword;
 
     public int getId() {
         return id;
@@ -24,6 +27,18 @@ public class User {
         this.name = name;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String fName) {this.firstName = fName; }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lName) { this.lastName = lName; }
+
     public String getEmail() {
         return email;
     }
@@ -31,6 +46,12 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {this.confirmPassword = confirmPassword; }
 
     public String getPassword() {
         return password;

@@ -32,35 +32,35 @@ public class FirstPage extends AppCompatActivity {
         dbHelperObject = new DbHelper(activity);
 
 
-                signIn1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+        signIn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                 //       if (!CheckDetails((TextInputEditText) tv1) && !CheckDetails((TextInputEditText) tv2) && dbHelperObject.checkUser(tv1.getText().toString().trim()
-                 //               , tv2.getText().toString().trim())) {
-                        if(!((tv1.getText().toString().trim()).length() == 0) && dbHelperObject.checkUser(tv1.getText().toString().trim(), tv2.getText().toString().trim())) {
-                            Log.i("Intent Starting ", " for Registration");
-                            Intent i = new Intent(getApplicationContext(), SignIn.class);
+                //       if (!CheckDetails((TextInputEditText) tv1) && !CheckDetails((TextInputEditText) tv2) && dbHelperObject.checkUser(tv1.getText().toString().trim()
+                //               , tv2.getText().toString().trim())) {
+                if(!((tv1.getText().toString().trim()).length() == 0) && dbHelperObject.checkUser(tv1.getText().toString().trim(), tv2.getText().toString().trim())) {
+                    Log.i("Intent Starting ", " for Registration");
+                    Intent i = new Intent(getApplicationContext(), SignIn.class);
 
-                            startActivity(i);
-                        } else {
-                            Toast.makeText(getBaseContext(), "Password or username incorrect", Toast.LENGTH_LONG).show();
-                        }
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getBaseContext(), "Password or username incorrect", Toast.LENGTH_LONG).show();
+                }
 
-                    }
+            }
 
-                });
+        });
 
-                 register1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
+        register1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                            Log.i("Intent Starting ", " for Registration");
-                            Intent i = new Intent(getApplicationContext(), SignUp.class);
+                Log.i("Intent Starting ", " for Registration");
+                Intent i = new Intent(getApplicationContext(), SignUp.class);
 
-                            startActivity(i);
-                        }
-                });
+                startActivity(i);
+            }
+        });
     }
 
     public void signin(View v) {
@@ -89,13 +89,10 @@ public class FirstPage extends AppCompatActivity {
     public boolean CheckDetails(TextInputEditText textInputEditText) {
         String value = textInputEditText.getText().toString().trim();
         if (value.isEmpty()) {
-          //  hideKeyboardFrom(textInputEditText);
+            //  hideKeyboardFrom(textInputEditText);
             return false;
         }
         return true;
     }
 
-    }
-
-
-
+}

@@ -48,7 +48,12 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("Reset Button Press","");
-                System.exit(0);
+                firstName.setText(null);
+                lastName.setText(null);
+                userName.setText(null);
+                emailAddress.setText(null);
+                password.setText(null);
+                confirmPassword.setText(null);
             }
         });}
 
@@ -65,31 +70,39 @@ public class SignUp extends AppCompatActivity {
         Log.v("FirstName","fname1"+fname1);
         databaseHelper = new DbHelper(activity);
         user = new User();
-      //  databaseHelper = new DatabaseHelper(context);
-      //  sqLiteDatabase = databaseHelper.getWritableDatabase();
-      //  DbHelper.insertInformation(fname1, lname1, username1, emailaddress, passw, cpassw, sqLiteDatabase);
-      //  Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
-      //  databaseHelper.close();
-        if (!databaseHelper.checkUser(emailAddress.getText().toString().trim())) {
+        //  databaseHelper = new DatabaseHelper(context);
+        //  sqLiteDatabase = databaseHelper.getWritableDatabase();
+        //  DbHelper.insertInformation(fname1, lname1, username1, emailaddress, passw, cpassw, sqLiteDatabase);
+        //  Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
+        //  databaseHelper.close();
+        if (!databaseHelper.checkUser(emailAddress.getText().toString().trim())){
+
 
             user.setName(userName.getText().toString().trim());
+            user.setFirstName(firstName.getText().toString().trim());
+            user.setLastName(lastName.getText().toString().trim());
             user.setEmail(emailAddress.getText().toString().trim());
             user.setPassword(password.getText().toString().trim());
+            user.setConfirmPassword(confirmPassword.getText().toString().trim());
 
             databaseHelper.addUser(user);
             Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
-
+            firstName.setText(null);
+            lastName.setText(null);
+            userName.setText(null);
+            emailAddress.setText(null);
+            password.setText(null);
+            confirmPassword.setText(null);
             // Snack Bar to show success message that record saved successfully
-       //     Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
-       //     emptyInputEditText();
+            //     Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
+            //     emptyInputEditText();
 
 
         } else {
             // Snack Bar to show error message that record already exists
-           // Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+            // Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
             Toast.makeText(getBaseContext(), "Error", Toast.LENGTH_LONG).show();
         }
-
 
 
     }

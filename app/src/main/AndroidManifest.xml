@@ -24,7 +24,6 @@
             android:name=".SignIn"
             android:label="@string/title_activity_sign_in"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CalendarClick"></activity>
     </application>
 
 </manifest>
