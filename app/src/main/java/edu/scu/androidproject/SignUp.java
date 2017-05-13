@@ -73,8 +73,11 @@ public class SignUp extends AppCompatActivity {
         if (!databaseHelper.checkUser(emailAddress.getText().toString().trim())) {
 
             user.setName(userName.getText().toString().trim());
+            user.setFirstName(firstName.getText().toString().trim());
+            user.setLastName(lastName.getText().toString().trim());
             user.setEmail(emailAddress.getText().toString().trim());
             user.setPassword(password.getText().toString().trim());
+            user.setConfirmPassword(confirmPassword.getText().toString().trim());
 
             databaseHelper.addUser(user);
             Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
@@ -89,7 +92,6 @@ public class SignUp extends AppCompatActivity {
            // Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
             Toast.makeText(getBaseContext(), "Error", Toast.LENGTH_LONG).show();
         }
-
 
 
     }

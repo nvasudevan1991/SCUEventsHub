@@ -13,10 +13,10 @@ import java.util.List;
 public class DbHelper extends SQLiteOpenHelper {
 
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Database Name
-    private static final String DATABASE_NAME = "UserManager.db";
+    private static final String DATABASE_NAME = "UserManager";
 
     // User table name
     private static final String TABLE_USER = "user";
@@ -24,13 +24,17 @@ public class DbHelper extends SQLiteOpenHelper {
     // User Table Columns names
     private static final String COLUMN_USER_ID = "user_id";
     private static final String COLUMN_USER_NAME = "user_name";
+    private static final String COLUMN_USER_FNAME = "user_firstname";
+    private static final String COLUMN_USER_LNAME = "user_lastname";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_PASSWORD = "user_password";
+    private static final String COLUMN_USER_CONFIRM_PASSWORD = "user_confirmpassword";
 
     // create table sql query
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
-            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT" + ")";
+            + COLUMN_USER_FNAME + " TEXT," + COLUMN_USER_LNAME + " TEXT," + COLUMN_USER_EMAIL + " TEXT,"
+            + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_USER_CONFIRM_PASSWORD + " TEXT" + ")";
 
     // drop table sql query
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
@@ -71,8 +75,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, user.getName());
+        values.put(COLUMN_USER_FNAME, user.getFirstName());
+        values.put(COLUMN_USER_LNAME, user.getLastName());
         values.put(COLUMN_USER_EMAIL, user.getEmail());
         values.put(COLUMN_USER_PASSWORD, user.getPassword());
+        values.put(COLUMN_USER_CONFIRM_PASSWORD, user.getConfirmPassword());
 
         // Inserting Row
         db.insert(TABLE_USER, null, values);
@@ -88,9 +95,12 @@ public class DbHelper extends SQLiteOpenHelper {
         // array of columns to fetch
         String[] columns = {
                 COLUMN_USER_ID,
-                COLUMN_USER_EMAIL,
                 COLUMN_USER_NAME,
-                COLUMN_USER_PASSWORD
+                COLUMN_USER_FNAME,
+                COLUMN_USER_LNAME,
+                COLUMN_USER_EMAIL,
+                COLUMN_USER_PASSWORD,
+                COLUMN_USER_CONFIRM_PASSWORD
         };
         // sorting orders
         String sortOrder =
@@ -120,8 +130,11 @@ public class DbHelper extends SQLiteOpenHelper {
                 User user = new User();
                 user.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID))));
                 user.setName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
+                user.setFirstName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_FNAME)));
+                user.setLastName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_LNAME)));
                 user.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)));
                 user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)));
+                user.setConfirmPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_CONFIRM_PASSWORD)));
                 // Adding user record to list
                 userList.add(user);
             } while (cursor.moveToNext());
@@ -143,8 +156,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, user.getName());
+        values.put(COLUMN_USER_FNAME, user.getFirstName());
+        values.put(COLUMN_USER_LNAME, user.getLastName());
         values.put(COLUMN_USER_EMAIL, user.getEmail());
         values.put(COLUMN_USER_PASSWORD, user.getPassword());
+        values.put(COLUMN_USER_CONFIRM_PASSWORD, user.getConfirmPassword());
 
         // updating row
         db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?",
