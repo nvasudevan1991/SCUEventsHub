@@ -21,6 +21,8 @@ public class DbHelper extends SQLiteOpenHelper {
     // User table name
     private static final String TABLE_USER = "user";
 
+    // Events Table
+    private static final String TABLE_EVENTS= "Events";
     // User Table Columns names
     private static final String COLUMN_USER_ID = "user_id";
     private static final String COLUMN_USER_NAME = "user_name";
@@ -29,15 +31,27 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_PASSWORD = "user_password";
     private static final String COLUMN_USER_CONFIRM_PASSWORD = "user_confirmpassword";
+    // Events Table Column name
+    private static  final String COLUMN_EVENT_ID = "event_id";
+    private static final String COLUMN_EVENT_TITLE = "event_title";
+    private static final String COLUMN_EVENT_DESCRIPTION = "event_description";
+    private static final String COLUMN_EVENT_DEPARTMENT= "event_dept";
+    private static final String COLUMN_EVENT_TIME = "event_time";
+    private static final String COLUMN_EVENT_VENUE ="event_venue";
+    private static final String  COLUMN_EVENT_DURATION ="event_duration";
+    private static final String COLUMN_EVENT_RSVP ="event_rsvp";
+    private static final String COLUMN_EVENT_DATE ="event_date";
 
     // create table sql query
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
             + COLUMN_USER_FNAME + " TEXT," + COLUMN_USER_LNAME + " TEXT," + COLUMN_USER_EMAIL + " TEXT,"
             + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_USER_CONFIRM_PASSWORD + " TEXT" + ")";
-
-    // drop table sql query
+    private String CREATE_EVENTS_TABLE ="CREATE TABLE " + TABLE_EVENTS + "(" + COLUMN_EVENT_ID + "INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_EVENT_TITLE + "TEXT," + COLUMN_EVENT_DESCRIPTION + "TEXT," + COLUMN_EVENT_DEPARTMENT + "TEXT," + COLUMN_EVENT_DEPARTMENT + "TEXT," + COLUMN_EVENT_TIME + "TIME," + COLUMN_EVENT_VENUE + "TEXT," + COLUMN_EVENT_DURATION + "INTEGER,"
+            + COLUMN_EVENT_DATE + "TEXT," + COLUMN_EVENT_RSVP + "TEXT" + ")";
+     // drop table sql query
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
+    private String DROP_EVENTS_TABLE = "DROP TABLE IF EXISTS " + TABLE_EVENTS;
 
     /**
      * Constructor
@@ -51,6 +65,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_USER_TABLE);
+        db.execSQL(CREATE_EVENTS_TABLE);
     }
 
 
@@ -59,6 +74,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         //Drop User Table if exist
         db.execSQL(DROP_USER_TABLE);
+        db.execSQL(DROP_EVENTS_TABLE);
 
         // Create tables again
         onCreate(db);
@@ -85,6 +101,22 @@ public class DbHelper extends SQLiteOpenHelper {
         db.insert(TABLE_USER, null, values);
         db.close();
 
+    }
+    public void addEvents(Events events)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues v=new ContentValues();
+        v.put(COLUMN_EVENT_TITLE,events.getEventTitle());
+        v.put(COLUMN_EVENT_DESCRIPTION,events.getEventDesc());
+        v.put(COLUMN_EVENT_DEPARTMENT,events.getEventDept());
+        v.put(COLUMN_EVENT_TIME,events.getEventTime());
+        v.put(COLUMN_EVENT_DATE,events.getEventDate());
+        v.put(COLUMN_EVENT_VENUE,events.getEventVenue());
+        v.put(COLUMN_EVENT_DURATION,events.getEventDuration());
+        v.put(COLUMN_EVENT_RSVP,events.getEventRsvp());
+
+        db.insert(TABLE_EVENTS,null,v);
+        db.close();
     }
 
     /**

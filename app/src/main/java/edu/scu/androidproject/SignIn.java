@@ -13,17 +13,18 @@ import android.widget.Toast;
 
 public class SignIn extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("Intent Reached","SignIn page");
         setContentView(R.layout.activity_sign_in);
-        CalendarView calendarView=(CalendarView) findViewById(R.id.calendar);
+        final CalendarView calendarView=(CalendarView) findViewById(R.id.calendar);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
 
-               Toast.makeText(getApplicationContext(), ""+dayOfMonth,Toast.LENGTH_LONG).show();
+               Toast.makeText(getApplicationContext(), ""+dayOfMonth, Toast.LENGTH_LONG).show();
 
             }
         });

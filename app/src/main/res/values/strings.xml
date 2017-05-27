@@ -4,4 +4,10 @@
     <string name="title_activity_sign_up">SignUp</string>
     <string name="title_activity_display">Display</string>
     <string name="forgot">Forgot password?</string>
+    <string name="title_activity_navigation_menu">navigation_menu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

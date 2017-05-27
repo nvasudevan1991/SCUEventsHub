@@ -41,8 +41,9 @@ public class FirstPage extends AppCompatActivity {
                 if(!((tv1.getText().toString().trim()).length() == 0) && dbHelperObject.checkUser(tv1.getText().toString().trim(), tv2.getText().toString().trim())) {
                     Log.i("Intent Starting ", " for Registration");
                     Intent i = new Intent(getApplicationContext(), SignIn.class);
-
                     startActivity(i);
+                    tv1.setText(null);
+                    tv2.setText(null);
                 } else {
                     Toast.makeText(getBaseContext(), "Password or username incorrect", Toast.LENGTH_LONG).show();
                 }
@@ -66,7 +67,7 @@ public class FirstPage extends AppCompatActivity {
     public void signin(View v) {
         if (v.getId() == R.id.signin) {
 
-            setContentView(R.layout.activity_sign_in);
+            setContentView(R.layout.activity_navigation_menu);
 
         } else {
             System.exit(0);
