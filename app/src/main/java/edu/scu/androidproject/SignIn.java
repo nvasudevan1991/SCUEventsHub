@@ -18,7 +18,7 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("Intent Reached","SignIn page");
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_menu_page);
         final CalendarView calendarView=(CalendarView) findViewById(R.id.calendar);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override

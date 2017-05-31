@@ -102,22 +102,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
 
     }
-    public void addEvents(Events events)
-    {
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues v=new ContentValues();
-        v.put(COLUMN_EVENT_TITLE,events.getEventTitle());
-        v.put(COLUMN_EVENT_DESCRIPTION,events.getEventDesc());
-        v.put(COLUMN_EVENT_DEPARTMENT,events.getEventDept());
-        v.put(COLUMN_EVENT_TIME,events.getEventTime());
-        v.put(COLUMN_EVENT_DATE,events.getEventDate());
-        v.put(COLUMN_EVENT_VENUE,events.getEventVenue());
-        v.put(COLUMN_EVENT_DURATION,events.getEventDuration());
-        v.put(COLUMN_EVENT_RSVP,events.getEventRsvp());
 
-        db.insert(TABLE_EVENTS,null,v);
-        db.close();
-    }
 
     /**
      * This method is to fetch all user and return the list of user records

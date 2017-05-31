@@ -40,7 +40,7 @@ public class FirstPage extends AppCompatActivity {
                 //               , tv2.getText().toString().trim())) {
                 if(!((tv1.getText().toString().trim()).length() == 0) && dbHelperObject.checkUser(tv1.getText().toString().trim(), tv2.getText().toString().trim())) {
                     Log.i("Intent Starting ", " for Registration");
-                    Intent i = new Intent(getApplicationContext(), SignIn.class);
+                    Intent i = new Intent(getApplicationContext(), MenuPage.class);
                     startActivity(i);
                     tv1.setText(null);
                     tv2.setText(null);
@@ -67,7 +67,7 @@ public class FirstPage extends AppCompatActivity {
     public void signin(View v) {
         if (v.getId() == R.id.signin) {
 
-            setContentView(R.layout.activity_navigation_menu);
+           // setContentView(R.layout.activity_navigation_menu);
 
         } else {
             System.exit(0);

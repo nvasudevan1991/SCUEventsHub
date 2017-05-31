@@ -25,8 +25,8 @@
             android:label="@string/title_activity_sign_in"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".navigation_menu"
-            android:label="@string/title_activity_navigation_menu"
+            android:name=".MenuPage"
+            android:label="@string/title_activity_menu_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
