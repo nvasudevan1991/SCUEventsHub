@@ -4,11 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidProject.iml" filepath="$PROJECT_DIR$/AndroidProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirstProjectApp/FirstProjectApp.iml" filepath="$PROJECT_DIR$/FirstProjectApp/FirstProjectApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/FirstProjectApp/FirstProjectApp.iml" filepath="$PROJECT_DIR$/FirstProjectApp/FirstProjectApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SCUEventsHub.iml" filepath="$PROJECT_DIR$/SCUEventsHub.iml" />
       <module fileurl="file://$PROJECT_DIR$/SecondApp/SecondApp.iml" filepath="$PROJECT_DIR$/SecondApp/SecondApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SecondApp/SecondApp.iml" filepath="$PROJECT_DIR$/SecondApp/SecondApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>
   </component>
