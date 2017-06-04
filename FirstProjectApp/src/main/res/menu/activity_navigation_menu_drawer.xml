@@ -4,26 +4,20 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/profile"
-            android:icon="@drawable/ic_menu_profile"
+            android:icon="@drawable/ic_menu_camera"
             android:title="Profile" />
         <item
             android:id="@+id/events"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Events" />
-
-        <item
-            android:id="@+id/fav"
-            android:icon="@drawable/ic_menu_favorite"
-            android:title="Favorites" />
-
         <item
             android:id="@+id/about"
-            android:icon="@drawable/ic_menu_about_us"
-            android:title="About Us" />
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="About the App" />
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_menu_logout"
-            android:title="Log Out" />
+            android:icon="@drawable/ic_menu_manage"
+            android:title="LogOut" />
     </group>
 
 
