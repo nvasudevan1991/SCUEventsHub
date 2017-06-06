@@ -17,7 +17,7 @@ import edu.scu.calendermonthviewtest.MainActivity;
 
 public class MenuPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+String value =null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +34,8 @@ public class MenuPage extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        value = getIntent().getStringExtra("email_id");
+        Toast.makeText(getApplicationContext(),value,Toast.LENGTH_LONG).show();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -79,9 +80,13 @@ public class MenuPage extends AppCompatActivity
 
         if (id == R.id.profile) {
             // Handle the camera action
+            Bundle bundle = new Bundle();
+            bundle.putString("user_email", value);
 
-            UserFragment fragment =new UserFragment();
+            ProfileFragment fragment =new ProfileFragment();
+            fragment.setArguments(bundle);
             android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+
             fragmentTransaction.replace(R.id.framelayout,fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.events) {
@@ -90,6 +95,7 @@ public class MenuPage extends AppCompatActivity
             fragmentTransaction.replace(R.id.framelayout,fragment);
             fragmentTransaction.commit();
            Intent event=new Intent(getApplicationContext(),MainActivity.class);
+            event.putExtra("e_d",value);
             startActivity(event);
 
         } else if (id == R.id.about) {

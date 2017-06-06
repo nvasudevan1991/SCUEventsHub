@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     TabLayout tl;
     ViewPager v;
+    String va =null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         v = (ViewPager) findViewById(R.id.viewPager);
    //     toolbar = (Toolbar) findViewById(R.id.tool_bar);
         v.setAdapter(new CustomAdapter(getSupportFragmentManager(), getApplicationContext()));
+        va = getIntent().getStringExtra("e_d");
     }
 
     private class CustomAdapter extends FragmentPagerAdapter {
@@ -33,9 +35,13 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch(position) {
                 case 0:
-                    return new Fragment1();
+                    Fragment1 f1 = new Fragment1();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("u_email", va);
+                    f1.setArguments(bundle);
+                    return f1;
                 case 1:
-                    return new Fragment2();
+                     return new Fragment2();
 
                 default:
                     return null;

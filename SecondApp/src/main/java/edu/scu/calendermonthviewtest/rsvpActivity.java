@@ -15,7 +15,8 @@ import static edu.scu.calendermonthviewtest.R.id.editText2;
 import static edu.scu.calendermonthviewtest.R.id.textView;
 
 public class rsvpActivity extends AppCompatActivity {
-
+    String toSend = null;
+    String eventd = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +24,11 @@ public class rsvpActivity extends AppCompatActivity {
         final EditText text1 = (EditText) findViewById(editText2);
         final TextView text2 = (TextView) findViewById(textView);
         Button button1 = (Button) findViewById(button);
+        toSend = getIntent().getStringExtra("email_id");
+        eventd = getIntent().getStringExtra("EventDetails");
+        Toast.makeText(getApplicationContext(),toSend,Toast.LENGTH_LONG).show();
+        text1.setText(eventd);
 
-        Bundle bundle = getIntent().getExtras();
-        text1.setText(bundle.getString("EventDetails"));
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 text2.setText("You have succesfully registered for the event");
@@ -37,9 +40,9 @@ public class rsvpActivity extends AppCompatActivity {
    private void sendEmail(){
 //
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-        emailIntent.setData(Uri.parse("mailto:" + "nvasudevan@scu.edu"));
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "My email's subject");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "My email's body");
+        emailIntent.setData(Uri.parse("mailto:" + toSend));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "View your registered event details");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, eventd);
 //
         try {
             startActivity(Intent.createChooser(emailIntent, "Send email using..."));

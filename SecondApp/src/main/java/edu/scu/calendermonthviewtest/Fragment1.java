@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 
@@ -38,13 +39,22 @@ public class Fragment1 extends Fragment {
     private SimpleDateFormat dateFormatForDisplaying = new SimpleDateFormat("dd-M-yyyy hh:mm:ss a", Locale.getDefault());
     private SimpleDateFormat dateFormatForMonth = new SimpleDateFormat("MMM - yyyy", Locale.getDefault());
     private boolean shouldShow = false;
-
+    String stringValue = null;
     public View onCreateView(LayoutInflater inflator, ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflator.inflate(R.layout.frag1, container, false);
 
         final EditText text3 = (EditText) v.findViewById(editText);
         final ArrayList<String> mobileArray = new ArrayList<>();
+        Bundle bundle = getArguments();
+
+        if(bundle != null){
+            stringValue = (String) bundle.getString("u_email");
+            Toast.makeText(getActivity().getApplicationContext(),stringValue,Toast.LENGTH_LONG).show();
+            // String myString = bundle.containsKey("user_email") ? bundle.getString("user_email") : "hi, cannot find me";
+         //   TextView myAwesomeTextView = (TextView)getActivity().findViewById(R.id.textView2);
+            //   myAwesomeTextView.setText(stringValue);
+        }
       //  mobileArray.add("Event1 : At SCU at 7 am");
       //  mobileArray.add("Events2 : At Bannan Center");
       //  mobileArray.add("Events3 : At Library");
@@ -94,6 +104,8 @@ public class Fragment1 extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(),rsvpActivity.class);
                 intent.putExtra("EventDetails",bookingsListView.getItemAtPosition(position).toString());
+                intent.putExtra("email_id", stringValue);
+                // intent.putExtra()
                 startActivity(intent);
             }
         });
