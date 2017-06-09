@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -165,12 +166,98 @@ public class DbHelper extends SQLiteOpenHelper {
         return userList;
     }
 
+    /*public void Select(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor ch = db.rawQuery("SELECT * FROM user WHERE COLUMN_USER_EMAIL = ?", new String[] {email});
+        if(ch.moveToFirst()){
+            do{
+                //assing values
+                String column1 = ch.getString(0);
+                String column2 = ch.getString(1);
+                String column3 = ch.getString(2);
+                //Do something Here with values
+                Log.i(column1,column2);
+
+            }while(ch.moveToNext());
+        }
+        ch.close();
+        db.close();
+    }
+*/
+    public List<String> Select(String email) {
+        String itemId = null;
+        String itemId1 = null;
+        String itemId2 = null;
+        String itemId3 = null;
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_USER_NAME,
+                COLUMN_USER_FNAME,
+                COLUMN_USER_LNAME,
+                COLUMN_USER_EMAIL
+
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // selection criteria
+        String selection = COLUMN_USER_EMAIL + " = ?";
+
+        // selection argument
+        String[] selectionArgs = {email};
+
+        // query user table with condition
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com';
+         */
+        Cursor cursor = db.query(TABLE_USER, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                      //filter by row groups
+                null);                      //The sort order
+        List<String> itemIds = new ArrayList<>();
+        while(cursor.moveToNext()) {
+             itemId = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COLUMN_USER_NAME));
+            itemId1 = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COLUMN_USER_FNAME));
+            itemId2 = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COLUMN_USER_LNAME));
+            itemId3 = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COLUMN_USER_EMAIL));
+            Log.i("hello",itemId);
+            itemIds.add(itemId);
+            itemIds.add(itemId1);
+            itemIds.add(itemId2);
+            itemIds.add(itemId3);
+        }
+        cursor.close();
+        db.close();
+
+        /* int cursorCount = cursor.getCount();
+        Log.i("length",String.valueOf(cursorCount));
+      //  cursor.getColumnIndex("ContactNumber")
+        String str1 = cursor.getString(cursor.getColumnIndex("ContactNumber"));
+        Log.i("hello",str1);
+        cursor.close();
+        db.close();
+*/
+//        if (cursorCount > 0) {
+//            return true;
+//        }
+
+        return itemIds;
+    }
+
     /**
      * This method to update user record
      *
      * @param user
-     */
-    public void updateUser(User user) {
+   /*
+ /*   public void updateUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -185,20 +272,20 @@ public class DbHelper extends SQLiteOpenHelper {
         db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?",
                 new String[]{String.valueOf(user.getId())});
         db.close();
-    }
+    } */
 
     /**
      * This method is to delete user record
      *
      * @param user
      */
-    public void deleteUser(User user) {
+   /* public void deleteUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         // delete user record by id
         db.delete(TABLE_USER, COLUMN_USER_ID + " = ?",
                 new String[]{String.valueOf(user.getId())});
         db.close();
-    }
+    }*/
 
     /**
      * This method to check user exist or not
