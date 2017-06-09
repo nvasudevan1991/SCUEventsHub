@@ -1,6 +1,7 @@
 package edu.scu.androidproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -93,6 +94,8 @@ public class SignUp extends AppCompatActivity {
             emailAddress.setText(null);
             password.setText(null);
             confirmPassword.setText(null);
+            Intent i =new Intent(getApplicationContext(),FirstPage.class);
+            startActivity(i);
             // Snack Bar to show success message that record saved successfully
             //     Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
             //     emptyInputEditText();
@@ -101,7 +104,7 @@ public class SignUp extends AppCompatActivity {
         } else {
             // Snack Bar to show error message that record already exists
             // Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
-            Toast.makeText(getBaseContext(), "Error", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Account Already Exists", Toast.LENGTH_LONG).show();
         }
 
 

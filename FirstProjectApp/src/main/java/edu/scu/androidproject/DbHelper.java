@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,39 +106,74 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
 
     }
-    public List<String> onSearch(String email)
-    {
-        List<String> result =new ArrayList<>();
-        SQLiteDatabase db =this.getReadableDatabase();
-       //  String SEARCH_USER =
-                 //Cursor c = db.rawQuery("SELECT * FROM tbl1 WHERE TRIM(name) = '"+name.trim()+"'", null);
-      // Cursor c = db.rawQuery("SELECT * FROM user where COLUMN_USER_EMAIL='"+email+"'" , null);
-       Cursor c = null;
+    public List<String> Select(String email) {
+        String itemId = null;
+        String itemId1 = null;
+        String itemId2 = null;
+        String itemId3 = null;
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_USER_NAME,
+                COLUMN_USER_FNAME,
+                COLUMN_USER_LNAME,
+                COLUMN_USER_EMAIL
 
-        //Cursor c = db.rawQuery("SELECT * FROM user",null);
-      //  Cursor c = db.rawQuery("SELECT * FROM user WHERE COLUMN_USER_EMAIL=?", new String[] {email});
-        String search="SELECT " +COLUMN_USER_FNAME + "  FROM "
-            + TABLE_USER + " where `" + COLUMN_USER_EMAIL + "`="
-            + email;
-        db.execSQL(search);
-        if(c.moveToFirst()){
-            do{
-                //assing values
-                String column1 = c.getString(0);
-                String column2 = c.getString(1);
-                String column3 = c.getString(2);
-                //Do something Here with values
-                result.add(column1);
-                result.add(column2);
-                result.add(column3);
-            }while(c.moveToNext());
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // selection criteria
+        String selection = COLUMN_USER_EMAIL + " = ?";
+
+        // selection argument
+        String[] selectionArgs = {email};
+
+        // query user table with condition
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com';
+         */
+        Cursor cursor = db.query(TABLE_USER, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                      //filter by row groups
+                null);                      //The sort order
+        List<String> itemIds = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            itemId = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COLUMN_USER_NAME));
+            itemId1 = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COLUMN_USER_FNAME));
+            itemId2 = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COLUMN_USER_LNAME));
+            itemId3 = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COLUMN_USER_EMAIL));
+            Log.i("hello",itemId);
+            itemIds.add(itemId);
+            itemIds.add(itemId1);
+            itemIds.add(itemId2);
+            itemIds.add(itemId3);
         }
-        c.close();
+        cursor.close();
         db.close();
 
-        return result;
+        /* int cursorCount = cursor.getCount();
+        Log.i("length",String.valueOf(cursorCount));
+      //  cursor.getColumnIndex("ContactNumber")
+        String str1 = cursor.getString(cursor.getColumnIndex("ContactNumber"));
+        Log.i("hello",str1);
+        cursor.close();
+        db.close();
+*/
+//        if (cursorCount > 0) {
+//            return true;
+//        }
 
+        return itemIds;
     }
+
 
 
     /**

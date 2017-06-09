@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +16,7 @@ public class FirstPage extends AppCompatActivity {
     private DbHelper dbHelperObject;
     private final AppCompatActivity activity = FirstPage.this;
     TextView tv1 = null;
-    TextView tv2 = null;
+    EditText tv2 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class FirstPage extends AppCompatActivity {
 
 
         final TextView tv1 = (TextView)findViewById(R.id.emailaddress);
-        final TextView tv2 = (TextView)findViewById(R.id.password);
+        final EditText tv2 = (EditText) findViewById(R.id.editText3);
         Button register1 = (Button) findViewById(R.id.register);
         Button signIn1=(Button) findViewById(R.id.signin);
 
@@ -38,6 +39,7 @@ public class FirstPage extends AppCompatActivity {
 
                 //       if (!CheckDetails((TextInputEditText) tv1) && !CheckDetails((TextInputEditText) tv2) && dbHelperObject.checkUser(tv1.getText().toString().trim()
                 //               , tv2.getText().toString().trim())) {
+                setContentView(R.layout.activity_spinner);
                 if(!((tv1.getText().toString().trim()).length() == 0) && dbHelperObject.checkUser(tv1.getText().toString().trim(), tv2.getText().toString().trim())) {
                     Log.i("Intent Starting ", " for Registration");
                     Intent i = new Intent(getApplicationContext(), MenuPage.class);
