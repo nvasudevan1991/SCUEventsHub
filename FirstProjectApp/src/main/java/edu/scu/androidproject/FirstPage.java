@@ -43,7 +43,7 @@ public class FirstPage extends AppCompatActivity {
                 if(!((tv1.getText().toString().trim()).length() == 0) && dbHelperObject.checkUser(tv1.getText().toString().trim(), tv2.getText().toString().trim())) {
                     Log.i("Intent Starting ", " for Registration");
                     Intent i = new Intent(getApplicationContext(), MenuPage.class);
-                    i.putExtra("email_id", tv1.getText().toString().trim());
+                   i.putExtra("email_id", tv1.getText().toString().trim());
                     startActivity(i);
                     tv1.setText(null);
                     tv2.setText(null);
