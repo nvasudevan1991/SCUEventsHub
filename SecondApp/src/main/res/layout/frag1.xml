@@ -49,25 +49,26 @@
             android:layout_below="@+id/compactcalendar_view"
             android:text="prev" />
 
-        <Button
-            android:id="@+id/next_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/compactcalendar_view"
-            android:layout_gravity="center_horizontal"
 
-
-            android:text="next" />
 
         <Button
             android:id="@+id/expose_animation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/compactcalendar_view"
-            android:layout_gravity="right"
-            android:layout_marginStart="29dp"
-            android:text="Expose" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="55dp"
 
+            android:text="Expose" />
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/compactcalendar_view"
+            android:layout_gravity="right"
+
+
+            android:text="next" />
 
     </GridLayout>
 

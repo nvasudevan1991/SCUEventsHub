@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import static edu.scu.calendermonthviewtest.R.id.button;
+import static edu.scu.calendermonthviewtest.R.id.buttonNo;
+import static edu.scu.calendermonthviewtest.R.id.buttonyes;
 import static edu.scu.calendermonthviewtest.R.id.editText2;
-import static edu.scu.calendermonthviewtest.R.id.textView;
+//import static edu.scu.calendermonthviewtest.R.id.textView;
 
 public class rsvpActivity extends AppCompatActivity {
     String toSend = null;
@@ -22,8 +22,9 @@ public class rsvpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rsvp);
         final EditText text1 = (EditText) findViewById(editText2);
-        final TextView text2 = (TextView) findViewById(textView);
-        Button button1 = (Button) findViewById(button);
+        //final TextView text2 = (TextView) findViewById(textView);
+        Button button1 = (Button) findViewById(buttonyes);
+        Button button2 =(Button)findViewById(buttonNo);
         toSend = getIntent().getStringExtra("email_id");
         eventd = getIntent().getStringExtra("EventDetails");
         Toast.makeText(getApplicationContext(),toSend,Toast.LENGTH_LONG).show();
@@ -31,10 +32,19 @@ public class rsvpActivity extends AppCompatActivity {
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                text2.setText("You have succesfully registered for the event");
+                Toast.makeText(getApplicationContext(), "Thanks for Registering" ,Toast.LENGTH_LONG).show();
+
             sendEmail();
             }
         });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                setContentView(R.layout.frag1);
+            }
+        });
+
 
     }
    private void sendEmail(){

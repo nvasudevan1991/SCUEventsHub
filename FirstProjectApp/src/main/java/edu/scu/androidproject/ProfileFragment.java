@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -31,13 +34,20 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onStart() {
+        List<String> catched =new ArrayList<>();
         super.onStart();
         Bundle bundle = getArguments();
 
         if(bundle != null){
             stringValue = (String) bundle.getString("user_email");
+            DbHelper dbHelper=new DbHelper(getActivity());
+           catched = dbHelper.onSearch(stringValue);
+            Toast.makeText(getActivity(),catched.get(0),Toast.LENGTH_LONG).show();
+
+
+
             // String myString = bundle.containsKey("user_email") ? bundle.getString("user_email") : "hi, cannot find me";
-            TextView myAwesomeTextView = (TextView)getActivity().findViewById(R.id.textView2);
+          //  TextView myAwesomeTextView = (TextView)getActivity().findViewById(R.id.textView2);
          //   myAwesomeTextView.setText(stringValue);
         }
 

@@ -4,14 +4,13 @@
     android:layout_height="match_parent"
     tools:context="edu.scu.androidproject.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/textView2"
+
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
-        tools:text="m@m.com" />
+        android:layout_height="178dp"
+        android:src="@drawable/profilepic"
+
+        />
 
 </FrameLayout>
