@@ -41,7 +41,7 @@ public class ProfileFragment extends Fragment {
         if(bundle != null){
             stringValue = (String) bundle.getString("user_email");
             DbHelper dbHelper=new DbHelper(getActivity());
-           catched = dbHelper.onSearch(stringValue);
+          // catched = dbHelper.onSearch(stringValue);
             Toast.makeText(getActivity(),catched.get(0),Toast.LENGTH_LONG).show();
 
 
