@@ -16,24 +16,42 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:text=" " />
-
+<GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonyes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RSVP YES"
-        android:layout_gravity="center"
+        android:text="YES"
+        android:layout_gravity="left"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="28dp" />
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/buttonNo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="230dp" />
+        android:text="No"
+        android:layout_gravity="center"
+        android:layout_marginStart="55dp"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <Button
+        android:id="@+id/buttonMaybe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Maybe"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="28dp" />
+</GridLayout>
+
+
 
 </LinearLayout>
 

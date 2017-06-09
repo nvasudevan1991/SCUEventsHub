@@ -53,6 +53,7 @@ public class DbHelper extends SQLiteOpenHelper {
     //        + COLUMN_EVENT_DATE + "TEXT," + COLUMN_EVENT_RSVP + "TEXT" + ")";
      // drop table sql query
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
+
     //private String DROP_EVENTS_TABLE = "DROP TABLE IF EXISTS " + TABLE_EVENTS;
 
     /**
@@ -88,6 +89,7 @@ public class DbHelper extends SQLiteOpenHelper {
      *
      * @param user
      */
+
     public void addUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -102,6 +104,39 @@ public class DbHelper extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_USER, null, values);
         db.close();
+
+    }
+    public List<String> onSearch(String email)
+    {
+        List<String> result =new ArrayList<>();
+        SQLiteDatabase db =this.getReadableDatabase();
+       //  String SEARCH_USER =
+                 //Cursor c = db.rawQuery("SELECT * FROM tbl1 WHERE TRIM(name) = '"+name.trim()+"'", null);
+      // Cursor c = db.rawQuery("SELECT * FROM user where COLUMN_USER_EMAIL='"+email+"'" , null);
+       Cursor c = null;
+
+        //Cursor c = db.rawQuery("SELECT * FROM user",null);
+      //  Cursor c = db.rawQuery("SELECT * FROM user WHERE COLUMN_USER_EMAIL=?", new String[] {email});
+        String search="SELECT " +COLUMN_USER_FNAME + "  FROM "
+            + TABLE_USER + " where `" + COLUMN_USER_EMAIL + "`="
+            + email;
+        db.execSQL(search);
+        if(c.moveToFirst()){
+            do{
+                //assing values
+                String column1 = c.getString(0);
+                String column2 = c.getString(1);
+                String column3 = c.getString(2);
+                //Do something Here with values
+                result.add(column1);
+                result.add(column2);
+                result.add(column3);
+            }while(c.moveToNext());
+        }
+        c.close();
+        db.close();
+
+        return result;
 
     }
 
