@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         v = (ViewPager) findViewById(R.id.viewPager);
-   //     toolbar = (Toolbar) findViewById(R.id.tool_bar);
+     //   toolbar = (Toolbar) findViewById(R.id.tool_bar);
         v.setAdapter(new CustomAdapter(getSupportFragmentManager(), getApplicationContext()));
         va = getIntent().getStringExtra("e_d");
     }

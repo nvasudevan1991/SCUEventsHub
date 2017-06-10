@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class FirstPage extends AppCompatActivity {
 
+    String APP_TAG = "SPLASH_SCREEN";
     private DbHelper dbHelperObject;
     private final AppCompatActivity activity = FirstPage.this;
     TextView tv1 = null;
