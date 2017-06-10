@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
@@ -44,7 +44,7 @@ public class Fragment1 extends Fragment {
 
         View v = inflator.inflate(R.layout.frag1, container, false);
 
-        final EditText text3 = (EditText) v.findViewById(editText);
+        final TextView text3 = (TextView) v.findViewById(editText);
         final ArrayList<String> mobileArray = new ArrayList<>();
         Bundle bundle = getArguments();
 

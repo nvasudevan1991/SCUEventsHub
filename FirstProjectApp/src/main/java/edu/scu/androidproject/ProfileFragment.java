@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +53,7 @@ public class ProfileFragment extends Fragment {
             String str4 = result.get(3);//Email
             TextView email=(TextView)getActivity().findViewById(R.id.emailaddresstextview);
             email.setText(str4);
-            Toast.makeText(getActivity(), str4, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getActivity(), str4, Toast.LENGTH_LONG).show();
             // String myString = bundle.containsKey("user_email") ? bundle.getString("user_email") : "hi, cannot find me";
             //   TextView myAwesomeTextView = (TextView)getActivity().findViewById(R.id.textView2);
             //   myAwesomeTextView.setText(stringValue);

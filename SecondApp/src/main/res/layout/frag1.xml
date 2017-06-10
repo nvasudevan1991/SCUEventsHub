@@ -3,21 +3,19 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+    <TextView
         android:id="@+id/editText"
         android:layout_below="@+id/compactcalendar_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="113dp"
+        android:layout_height="30dp"
         android:layout_toEndOf="@+id/expose_animation"
+        android:layout_gravity="center_horizontal"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Month Name"
+        android:text="June-2017"
+        android:textStyle="bold"
+        android:textSize ="20sp"
         android:layout_above="@+id/bookings_listview" />
-
-
-
-
-
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/compactcalendar_view"

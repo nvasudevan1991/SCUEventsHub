@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EventHub Application</string>
+    <string name="app_name">SCU Events Hub</string>
     <string name="title_activity_sign_in">SignIn</string>
     <string name="title_activity_sign_up">SignUp</string>
     <string name="title_activity_display">Display</string>

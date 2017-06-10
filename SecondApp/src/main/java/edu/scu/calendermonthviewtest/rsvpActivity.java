@@ -1,5 +1,9 @@
 package edu.scu.calendermonthviewtest;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static edu.scu.calendermonthviewtest.R.id.buttonMaybe;
 import static edu.scu.calendermonthviewtest.R.id.buttonNo;
 import static edu.scu.calendermonthviewtest.R.id.buttonyes;
 import static edu.scu.calendermonthviewtest.R.id.editText2;
@@ -25,6 +30,7 @@ public class rsvpActivity extends AppCompatActivity {
         //final TextView text2 = (TextView) findViewById(textView);
         Button button1 = (Button) findViewById(buttonyes);
         Button button2 =(Button)findViewById(buttonNo);
+        Button button3 =(Button)findViewById(buttonMaybe) ;
         toSend = getIntent().getStringExtra("email_id");
         eventd = getIntent().getStringExtra("EventDetails");
         Toast.makeText(getApplicationContext(),toSend,Toast.LENGTH_LONG).show();
@@ -33,8 +39,25 @@ public class rsvpActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Thanks for Registering" ,Toast.LENGTH_LONG).show();
+                sendEmail();
+                Intent in = new Intent();
+                PendingIntent pi = PendingIntent.getActivity(rsvpActivity.this,0,in,0);
+                Notification noti = new Notification.Builder(rsvpActivity.this)
+                        .setTicker("SCU Events Hub")
+                        .setContentTitle(eventd)
+                        .setContentText(eventd)
+                        .setSmallIcon(R.drawable.notification_flat_resized)
+                        .setContentIntent(pi).getNotification();
 
-            sendEmail();
+                noti.flags=Notification.FLAG_AUTO_CANCEL;
+
+                String servName = Context.NOTIFICATION_SERVICE;
+                NotificationManager notificationManager;
+
+                notificationManager = (NotificationManager) getSystemService(servName);
+
+                notificationManager.notify(0,noti);
+
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +67,6 @@ public class rsvpActivity extends AppCompatActivity {
                 setContentView(R.layout.frag1);
             }
         });
-
 
     }
    private void sendEmail(){

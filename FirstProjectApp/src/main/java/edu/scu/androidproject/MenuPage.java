@@ -35,7 +35,7 @@ String value =null;
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         value = getIntent().getStringExtra("email_id");
-        Toast.makeText(getApplicationContext(),value,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),value,Toast.LENGTH_LONG).show();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }

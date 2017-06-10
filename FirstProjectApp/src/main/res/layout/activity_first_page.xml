@@ -57,7 +57,7 @@
                 tools:layout_editor_absoluteX="8dp">
 
                 <requestFocus
-                    layout_weight="0.80"
+                    android:layout_weight="0.80"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
