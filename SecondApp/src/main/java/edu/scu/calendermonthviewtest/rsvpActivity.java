@@ -8,15 +8,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import static edu.scu.calendermonthviewtest.R.id.buttonMaybe;
 import static edu.scu.calendermonthviewtest.R.id.buttonNo;
 import static edu.scu.calendermonthviewtest.R.id.buttonyes;
 import static edu.scu.calendermonthviewtest.R.id.editText2;
+
 //import static edu.scu.calendermonthviewtest.R.id.textView;
 
 public class rsvpActivity extends AppCompatActivity {
@@ -29,8 +30,7 @@ public class rsvpActivity extends AppCompatActivity {
         final EditText text1 = (EditText) findViewById(editText2);
         //final TextView text2 = (TextView) findViewById(textView);
         Button button1 = (Button) findViewById(buttonyes);
-        Button button2 =(Button)findViewById(buttonNo);
-        Button button3 =(Button)findViewById(buttonMaybe) ;
+        final Button button2 =(Button)findViewById(buttonNo);
         toSend = getIntent().getStringExtra("email_id");
         eventd = getIntent().getStringExtra("EventDetails");
         Toast.makeText(getApplicationContext(),toSend,Toast.LENGTH_LONG).show();
@@ -64,9 +64,21 @@ public class rsvpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                setContentView(R.layout.frag1);
+                //buttonNo=0;
+                if(button2.isPressed()== true)
+                {
+                    Log.i("No","Button Pressed");
+                    //KeyEvent.KEYCODE_BACK;
+                    //moveTaskToBack(true);
+                    finish();
+                }
+                else
+                {
+                    moveTaskToBack(false);
+                }
             }
         });
+
 
     }
    private void sendEmail(){

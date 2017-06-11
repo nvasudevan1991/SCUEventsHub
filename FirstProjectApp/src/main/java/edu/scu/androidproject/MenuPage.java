@@ -18,6 +18,7 @@ import edu.scu.calendermonthviewtest.MainActivity;
 public class MenuPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 String value =null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +81,7 @@ String value =null;
 
         if (id == R.id.profile) {
             // Handle the camera action
-            Bundle bundle = new Bundle();
+            final Bundle bundle = new Bundle();
             bundle.putString("user_email", value);
 
             ProfileFragment fragment =new ProfileFragment();
@@ -89,6 +90,7 @@ String value =null;
 
             fragmentTransaction.replace(R.id.framelayout,fragment);
             fragmentTransaction.commit();
+
         } else if (id == R.id.events) {
             EventFragment fragment =new EventFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();

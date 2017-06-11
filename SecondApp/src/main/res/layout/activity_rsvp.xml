@@ -23,7 +23,7 @@
     >
     <Button
         android:id="@+id/buttonyes"
-        android:layout_width="wrap_content"
+        android:layout_width="132dp"
         android:layout_height="wrap_content"
         android:text="YES"
         android:layout_gravity="left"
@@ -33,22 +33,14 @@
 
     <Button
         android:id="@+id/buttonNo"
-        android:layout_width="wrap_content"
+        android:layout_width="132dp"
         android:layout_height="wrap_content"
         android:text="No"
-        android:layout_gravity="center"
+        android:layout_gravity="right"
         android:layout_marginStart="55dp"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="28dp" />
 
-    <Button
-        android:id="@+id/buttonMaybe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Maybe"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="28dp" />
 </GridLayout>
 
 

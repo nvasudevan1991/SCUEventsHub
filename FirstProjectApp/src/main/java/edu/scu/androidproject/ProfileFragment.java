@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,14 +29,23 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_profile, container, false);
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
         Bundle bundle = getArguments();
-
+         Button changePassword =(Button)getActivity().findViewById(R.id.changePassword);
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().setContentView(R.layout.activity_change_password);
+            }
+        });
         if (bundle != null) {
             List<String> result = new ArrayList<>();
             stringValue = (String) bundle.getString("user_email");
@@ -59,5 +69,10 @@ public class ProfileFragment extends Fragment {
             //   myAwesomeTextView.setText(stringValue);
         }
 
+
+
+
     }
+
+
 }
