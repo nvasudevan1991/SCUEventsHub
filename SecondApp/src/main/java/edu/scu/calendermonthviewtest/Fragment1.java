@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 
@@ -50,7 +49,7 @@ public class Fragment1 extends Fragment {
 
         if(bundle != null){
             stringValue = (String) bundle.getString("u_email");
-            Toast.makeText(getActivity().getApplicationContext(),stringValue,Toast.LENGTH_LONG).show();
+           // Toast.makeText(getActivity().getApplicationContext(),stringValue,Toast.LENGTH_LONG).show();
             // String myString = bundle.containsKey("user_email") ? bundle.getString("user_email") : "hi, cannot find me";
          //   TextView myAwesomeTextView = (TextView)getActivity().findViewById(R.id.textView2);
             //   myAwesomeTextView.setText(stringValue);

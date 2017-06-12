@@ -114,6 +114,23 @@ String value =null;
 
 
         }
+        else if (id == R.id.changePassword) {
+           // PasswordFragment fragment =new PasswordFragment();
+          //  android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+         //   fragmentTransaction.replace(R.id.framelayout,fragment);
+         //   fragmentTransaction.commit();
+            final Bundle bundle = new Bundle();
+            bundle.putString("user_email", value);
+
+            PasswordFragment fragment =new PasswordFragment();
+            fragment.setArguments(bundle);
+            android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+
+            fragmentTransaction.replace(R.id.framelayout,fragment);
+            fragmentTransaction.commit();
+
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -12,9 +12,9 @@
             android:title="Events" />
 
         <item
-            android:id="@+id/fav"
+            android:id="@+id/changePassword"
             android:icon="@drawable/ic_menu_favorite"
-            android:title="Favorites" />
+            android:title="Change Password" />
 
         <item
             android:id="@+id/about"

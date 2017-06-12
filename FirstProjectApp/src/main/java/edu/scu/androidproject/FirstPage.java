@@ -40,8 +40,9 @@ public class FirstPage extends AppCompatActivity {
 
                 //       if (!CheckDetails((TextInputEditText) tv1) && !CheckDetails((TextInputEditText) tv2) && dbHelperObject.checkUser(tv1.getText().toString().trim()
                 //               , tv2.getText().toString().trim())) {
-                setContentView(R.layout.activity_spinner);
+
                 if(!((tv1.getText().toString().trim()).length() == 0) && dbHelperObject.checkUser(tv1.getText().toString().trim(), tv2.getText().toString().trim())) {
+                    setContentView(R.layout.activity_spinner);
                     Log.i("Intent Starting ", " for Registration");
                     Intent i = new Intent(getApplicationContext(), MenuPage.class);
                    i.putExtra("email_id", tv1.getText().toString().trim());

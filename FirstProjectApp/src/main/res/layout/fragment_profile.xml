@@ -22,15 +22,17 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="35dp"
         android:text="First Name :"
+        android:textSize="18sp"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:id="@+id/firstnametextview"
         android:layout_marginStart="55dp"
+        android:textSize="18sp"
         />
 </LinearLayout>
     <LinearLayout
@@ -38,15 +40,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="35dp"
             android:text="Last Name :"
+            android:textSize="18sp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:id="@+id/lastnametextview"
             android:layout_marginStart="55dp"
+            android:textSize="18sp"
             />
     </LinearLayout>
     <LinearLayout
@@ -54,39 +58,41 @@
         android:layout_height="35dp"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="User Name :"
+            android:textSize="18sp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:id="@+id/usernametextview"
             android:layout_marginStart="55dp"
+            android:textSize="18sp"
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="1">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="35dp"
             android:text="Email Address :"
+            android:textSize="18sp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:id="@+id/emailaddresstextview"
             android:layout_marginStart="55dp"
+            android:layout_weight="0.36"
+            android:textSize="18sp"
             />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/changePassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Change Password" />
+
 
 
 </LinearLayout>

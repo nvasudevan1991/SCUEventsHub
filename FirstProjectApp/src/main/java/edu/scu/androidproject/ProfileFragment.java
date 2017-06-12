@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -39,13 +38,7 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Bundle bundle = getArguments();
-         Button changePassword =(Button)getActivity().findViewById(R.id.changePassword);
-        changePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().setContentView(R.layout.activity_change_password);
-            }
-        });
+
         if (bundle != null) {
             List<String> result = new ArrayList<>();
             stringValue = (String) bundle.getString("user_email");
@@ -63,7 +56,7 @@ public class ProfileFragment extends Fragment {
             String str4 = result.get(3);//Email
             TextView email=(TextView)getActivity().findViewById(R.id.emailaddresstextview);
             email.setText(str4);
-            //Toast.makeText(getActivity(), str4, Toast.LENGTH_LONG).show();
+           // Toast.makeText(getActivity(), stringValue, Toast.LENGTH_LONG).show();
             // String myString = bundle.containsKey("user_email") ? bundle.getString("user_email") : "hi, cannot find me";
             //   TextView myAwesomeTextView = (TextView)getActivity().findViewById(R.id.textView2);
             //   myAwesomeTextView.setText(stringValue);

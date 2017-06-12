@@ -236,6 +236,18 @@ public class DbHelper extends SQLiteOpenHelper {
         return userList;
     }
 
+    public void changePassword(String email,String Password){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USER_PASSWORD,Password);
+        values.put(COLUMN_USER_CONFIRM_PASSWORD,Password);
+        db.update(TABLE_USER, values, COLUMN_USER_EMAIL + " = ?",
+                new String[]{email});
+        db.close();
+
+
+    }
     /*public void Select(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor ch = db.rawQuery("SELECT * FROM user WHERE COLUMN_USER_EMAIL = ?", new String[] {email});
@@ -261,7 +273,7 @@ public class DbHelper extends SQLiteOpenHelper {
      *
      * @param user
    /*
- /*   public void updateUser(User user) {
+    ublic void updateUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -276,8 +288,8 @@ public class DbHelper extends SQLiteOpenHelper {
         db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?",
                 new String[]{String.valueOf(user.getId())});
         db.close();
-    } */
-
+    }
+*/
     /**
      * This method is to delete user record
      *
