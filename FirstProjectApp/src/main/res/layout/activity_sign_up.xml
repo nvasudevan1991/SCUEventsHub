@@ -41,14 +41,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Password" />
+        android:hint="Password"
+        android:inputType="textPassword"/>
 
     <EditText
         android:id="@+id/cPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Confirm Password" />
+        android:hint="Confirm Password"
+        android:inputType="textPassword"/>
 
 
 

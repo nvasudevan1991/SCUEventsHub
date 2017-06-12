@@ -33,7 +33,7 @@ public class rsvpActivity extends AppCompatActivity {
         final Button button2 =(Button)findViewById(buttonNo);
         toSend = getIntent().getStringExtra("email_id");
         eventd = getIntent().getStringExtra("EventDetails");
-        Toast.makeText(getApplicationContext(),toSend,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),toSend,Toast.LENGTH_LONG).show();
         text1.setText(eventd);
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +86,7 @@ public class rsvpActivity extends AppCompatActivity {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:" + toSend));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "View your registered event details");
+        //emailIntent.putExtra(Intent.EXTRA_TEXT,"Thanks for Registering to the below event ");
         emailIntent.putExtra(Intent.EXTRA_TEXT, eventd);
 //
         try {

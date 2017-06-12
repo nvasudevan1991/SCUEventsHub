@@ -76,17 +76,36 @@ public class Fragment1 extends Fragment {
                                                 Log.d(TAG, "inside onclick " + dateFormatForDisplaying.format(dateClicked));
                                                 Log.d(TAG, "inside onclick " + dateFormatForMonth.format(dateClicked));
                                                 text3.setText(dateFormatForMonth.format(dateClicked));
-                                                if(dateFormatForDisplaying.format(dateClicked).equals("28-5-2017 12:00:00 AM")) {
+                                                if(dateFormatForDisplaying.format(dateClicked).equals("12-6-2017 12:00:00 AM")) {
                                                     mobileArray.clear();
-                                                    mobileArray.add(0,"Fitness event near gym");
-                                                    mobileArray.add(1,"Movie opposite to library");
-                                                    mobileArray.add(2,"Concert near Benson");
-                                                } else if(dateFormatForDisplaying.format(dateClicked).equals("30-5-2017 12:00:00 AM")){
+                                                    mobileArray.add(0,"Research showcase at Learning Commons 11.00 am to 12:30 pm");
+
+                                                } else if(dateFormatForDisplaying.format(dateClicked).equals("14-6-2017 12:00:00 AM")){
                                                     mobileArray.clear();
-                                                    mobileArray.add(0,"My event");
-                                                    mobileArray.add(1,"My event2");
-                                                    mobileArray.add(2,"My event3");
-                                                } else {
+                                                    mobileArray.add(0,"Annual Genesis Film Festival at Recital Hall 5:00 pm to 9:00 pm");
+
+                                                    mobileArray.add(1,"OMIS Seminar at Lucas Hall 108 12:00 pm to 1:15 pm");
+                                                    mobileArray.add(2,"Dept of Education 4th Annual Public Forum Guadalupe Hall 4:30pm to 7:00 pm");
+
+                                                } else if(dateFormatForDisplaying.format(dateClicked).equals("15-6-2017 12:00:00 AM")){
+                                                    mobileArray.clear();
+                                                    mobileArray.add(0,"Pan Asian Senior Ceremony at Locatelli Center 5:00 pm to 9:00 pm");
+
+                                                    mobileArray.add(1,"Black Senior Ceremony, Benson Memorial Hall 6 pm");
+                                                    mobileArray.add(2,"Latin Senior Ceremony, Mayer Theatre 7:30 pm");
+
+                                                } else if(dateFormatForDisplaying.format(dateClicked).equals("16-6-2017 12:00:00 AM")){
+                                                    mobileArray.clear();
+                                                    mobileArray.add(0,"2017 Commencement at Locatelli Center 5:00 pm to 9:00 pm");
+
+
+
+                                                }else if(dateFormatForDisplaying.format(dateClicked).equals("17-6-2017 12:00:00 AM")){
+                                                    mobileArray.clear();
+                                                    mobileArray.add(0,"2017 Undergrad Commencement at Stevans Stadium 8:30 am");
+
+
+                                                }else {
                                                     mobileArray.clear();
                                                 }
                                                // List<Event> bookingsFromMap =

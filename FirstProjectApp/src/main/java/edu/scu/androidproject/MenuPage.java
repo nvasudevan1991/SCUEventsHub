@@ -25,9 +25,9 @@ String value =null;
         setContentView(R.layout.activity_menu_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ProfileFragment profileFragment=new ProfileFragment() ;
+        WelcomeFragment fragment=new WelcomeFragment() ;
         android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.framelayout,profileFragment);
+        fragmentTransaction.replace(R.id.framelayout,fragment);
         fragmentTransaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
