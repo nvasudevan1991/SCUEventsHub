@@ -23,8 +23,13 @@ public class MainActivity extends AppCompatActivity {
      //   toolbar = (Toolbar) findViewById(R.id.tool_bar);
         v.setAdapter(new CustomAdapter(getSupportFragmentManager(), getApplicationContext()));
         va = getIntent().getStringExtra("e_d");
-    }
 
+    }
+    @Override
+    public void onBackPressed() {
+        //Toast.makeText(getApplication(),"Back",Toast.LENGTH_LONG).show();
+        System.exit(0);
+    }
     private class CustomAdapter extends FragmentPagerAdapter {
        private String fragments [] = {"Month View","Map View"};
         public CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
