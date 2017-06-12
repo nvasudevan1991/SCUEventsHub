@@ -64,6 +64,9 @@ public class PasswordFragment extends Fragment {
                 //result = dbHelper.Select(stringValue);
 
                     dbHelper.changePassword(stringValue,newpassword1);
+                current.setText(null);
+                newpassword.setText(null);
+                confirmpassword.setText(null);
 
 
             }

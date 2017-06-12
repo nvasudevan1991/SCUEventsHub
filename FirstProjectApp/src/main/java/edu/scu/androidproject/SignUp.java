@@ -46,6 +46,23 @@ public class SignUp extends AppCompatActivity {
             }
         });
         reset.setOnClickListener(new View.OnClickListener() {
+
+
+
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                /*  firstName.setText(null);
+                lastName.setText(null);
+                userName.setText(null);
+                emailAddress.setText(null);
+                password.setText(null);
+                confirmPassword.setText(null);*/
+            }
+        });
+        /*
+        reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("Reset Button Press","");
@@ -56,7 +73,10 @@ public class SignUp extends AppCompatActivity {
                 password.setText(null);
                 confirmPassword.setText(null);
             }
-        });}
+        });*/
+
+
+    }
 
 
 

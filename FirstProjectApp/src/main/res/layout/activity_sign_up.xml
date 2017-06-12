@@ -41,16 +41,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"/>
+        android:hint="Password" />
 
     <EditText
         android:id="@+id/cPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"/>
+        android:hint="Confirm Password" />
 
 
 
@@ -62,7 +60,7 @@
             android:id="@+id/resetbutton"
             android:layout_width="199dp"
             android:layout_height="wrap_content"
-            android:text="  Reset "
+            android:text="  Back "
             android:onClick="reset"
             />
 

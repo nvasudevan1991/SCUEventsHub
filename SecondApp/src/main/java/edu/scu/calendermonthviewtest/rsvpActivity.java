@@ -86,7 +86,6 @@ public class rsvpActivity extends AppCompatActivity {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:" + toSend));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "View your registered event details");
-        //emailIntent.putExtra(Intent.EXTRA_TEXT,"Thanks for Registering to the below event ");
         emailIntent.putExtra(Intent.EXTRA_TEXT, eventd);
 //
         try {
