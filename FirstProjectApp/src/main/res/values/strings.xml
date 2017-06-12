@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SCU Events Hub</string>
+    <string name="app_name">Events Hub</string>
     <string name="title_activity_sign_in">SignIn</string>
     <string name="title_activity_sign_up">SignUp</string>
     <string name="title_activity_display">Display</string>
@@ -13,7 +13,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_menu_page">SCU Events Hub</string>
+    <string name="title_activity_menu_page">Events Hub</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
