@@ -32,6 +32,7 @@ public class PasswordFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_password, container, false);
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
