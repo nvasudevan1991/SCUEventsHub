@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:visibility="visible"
-    tools:context="edu.scu.calendermonthviewtest.MainActivity">
+    tools:context="edu.scu.eventssecond.MainActivity">
 
 
     <android.support.v4.view.ViewPager

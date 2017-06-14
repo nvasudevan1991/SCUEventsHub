@@ -1,4 +1,4 @@
-package edu.scu.calendermonthviewtest;
+package edu.scu.eventssecond;
 
 import android.content.Context;
 import android.os.Bundle;

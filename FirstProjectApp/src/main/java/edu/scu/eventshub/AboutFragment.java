@@ -1,4 +1,4 @@
-package edu.scu.androidproject;
+package edu.scu.eventshub;
 
 
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LogoutFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
 
-    public LogoutFragment() {
+    public AboutFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ public class LogoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_logout, container, false);
+        return inflater.inflate(R.layout.fragment_about, container, false);
     }
 
 }

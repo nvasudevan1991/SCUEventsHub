@@ -1,4 +1,4 @@
-package edu.scu.calendermonthviewtest;
+package edu.scu.eventssecond;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,8 +23,8 @@ import java.util.Date;
 import java.util.Locale;
 
 import static android.content.ContentValues.TAG;
-import static edu.scu.calendermonthviewtest.R.id.bookings_listview;
-import static edu.scu.calendermonthviewtest.R.id.editText;
+import static edu.scu.eventssecond.R.id.bookings_listview;
+import static edu.scu.eventssecond.R.id.editText;
 
 /**
  * Created by lakshmimanasavelaga on 5/12/17.

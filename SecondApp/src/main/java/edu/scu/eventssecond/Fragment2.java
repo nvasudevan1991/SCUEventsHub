@@ -1,4 +1,4 @@
-package edu.scu.calendermonthviewtest;
+package edu.scu.eventssecond;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

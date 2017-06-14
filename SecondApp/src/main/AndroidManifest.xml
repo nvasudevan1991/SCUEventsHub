@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.scu.calendermonthviewtest">
+    package="edu.scu.eventssecond">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -17,10 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="edu.scu.eventssecond.MainActivity">
 
         </activity>
-        <activity android:name=".rsvpActivity" />
+        <activity android:name="edu.scu.eventssecond.rsvpActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

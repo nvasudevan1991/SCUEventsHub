@@ -1,4 +1,4 @@
-package edu.scu.calendermonthviewtest;
+package edu.scu.eventssecond;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -14,9 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import static edu.scu.calendermonthviewtest.R.id.buttonNo;
-import static edu.scu.calendermonthviewtest.R.id.buttonyes;
-import static edu.scu.calendermonthviewtest.R.id.editText2;
+import static edu.scu.eventssecond.R.id.buttonNo;
+import static edu.scu.eventssecond.R.id.buttonyes;
+import static edu.scu.eventssecond.R.id.editText2;
 
 //import static edu.scu.calendermonthviewtest.R.id.textView;
 

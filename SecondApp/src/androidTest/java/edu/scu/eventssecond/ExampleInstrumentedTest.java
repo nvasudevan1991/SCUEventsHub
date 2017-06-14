@@ -1,4 +1,4 @@
-package edu.scu.androidproject;
+package edu.scu.eventssecond;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("edu.scu.androidproject", appContext.getPackageName());
+        assertEquals("edu.scu.calendermonthviewtest", appContext.getPackageName());
     }
 }

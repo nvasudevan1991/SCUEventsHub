@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.scu.androidproject.WelcomeFragment">
+    tools:context="edu.scu.eventshub.WelcomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -16,7 +16,7 @@
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/coll" />
+            android:src="@drawable/welcome" />
 
 
         <TextView

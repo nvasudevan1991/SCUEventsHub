@@ -1,4 +1,4 @@
-package edu.scu.androidproject;
+package edu.scu.eventshub;
 
 
 public class User {

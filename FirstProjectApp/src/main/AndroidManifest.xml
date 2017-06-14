@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.scu.androidproject">
+    package="edu.scu.eventshub">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WelcomeActivity">
+        <activity android:name="edu.scu.eventshub.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,19 +17,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUp"
+            android:name="edu.scu.eventshub.SignUp"
             android:label="@string/title_activity_sign_up"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SignIn"
+            android:name="edu.scu.eventshub.SignIn"
             android:label="@string/title_activity_sign_in"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".MenuPage"
+            android:name="edu.scu.eventshub.MenuPage"
             android:label="@string/title_activity_menu_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".FirstPage" />
+        <activity android:name="edu.scu.eventshub.FirstPage" />
     </application>
 
 </manifest>

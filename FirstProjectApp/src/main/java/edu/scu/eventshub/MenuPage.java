@@ -1,4 +1,4 @@
-package edu.scu.androidproject;
+package edu.scu.eventshub;
 
 
 import android.content.Intent;
@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import edu.scu.calendermonthviewtest.MainActivity;
+import edu.scu.eventssecond.MainActivity;
 
 public class MenuPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

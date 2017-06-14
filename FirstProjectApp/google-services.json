@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:648969405857:android:0d4497d873ff2964",
         "android_client_info": {
-          "package_name": "edu.scu.androidproject"
+          "package_name": "edu.scu.eventshub"
         }
       },
       "oauth_client": [

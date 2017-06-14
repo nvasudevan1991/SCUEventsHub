@@ -1,4 +1,4 @@
-package edu.scu.androidproject;
+package edu.scu.eventshub;
 
 import android.content.Context;
 import android.content.Intent;

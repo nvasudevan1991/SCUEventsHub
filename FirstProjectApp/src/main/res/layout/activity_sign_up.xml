@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="edu.scu.androidproject.SignUp">
+    tools:context="edu.scu.eventshub.SignUp">
 
     <EditText
         android:id="@+id/fName"
@@ -41,14 +41,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Password" />
+        android:hint="Password"
+        android:inputType="textPassword"
+        />
 
     <EditText
         android:id="@+id/cPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Confirm Password" />
+        android:hint="Confirm Password"
+        android:inputType="textPassword"/>
 
 
 

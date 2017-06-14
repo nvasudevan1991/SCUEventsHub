@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context="edu.scu.androidproject.ProfileFragment">
+    tools:context="edu.scu.eventshub.ProfileFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
